@@ -1,0 +1,15 @@
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\bin\Debug\net5.0\Converter_json_to_csv.exe
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\bin\Debug\net5.0\Converter_json_to_csv.deps.json
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\bin\Debug\net5.0\Converter_json_to_csv.runtimeconfig.json
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\bin\Debug\net5.0\Converter_json_to_csv.runtimeconfig.dev.json
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\bin\Debug\net5.0\Converter_json_to_csv.dll
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\bin\Debug\net5.0\ref\Converter_json_to_csv.dll
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\bin\Debug\net5.0\Converter_json_to_csv.pdb
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\Converter_json_to_csv.GeneratedMSBuildEditorConfig.editorconfig
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\Converter_json_to_csv.AssemblyInfoInputs.cache
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\Converter_json_to_csv.AssemblyInfo.cs
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\Converter_json_to_csv.csproj.CoreCompileInputs.cache
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\Converter_json_to_csv.dll
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\ref\Converter_json_to_csv.dll
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\Converter_json_to_csv.pdb
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\Converter_json_to_csv.genruntimeconfig.cache

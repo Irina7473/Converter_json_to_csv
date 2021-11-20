@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Converter_json_to_csv/1.0.0": {
+        "runtime": {
+          "Converter_json_to_csv.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Converter_json_to_csv/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
