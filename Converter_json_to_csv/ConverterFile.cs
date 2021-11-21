@@ -13,21 +13,11 @@ namespace Converter_json_to_csv
 {
     public static class ConverterFile
     {
-        public static event Action<string> Notify;
-        private static string _inputPath;  // I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\testConverter.json
-        private static string _outputPath; // I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\testConverter1.csv
-
-        /*
-        private static bool FindPath(string path)
-        {
-            if (File.Exists(path)) return true;
-            else
-            {
-                Notify?.Invoke($"{path} не найден.");
-                return false;
-            }
-        }*/
-
+        public static Action<string> Notify;
+        private static string _inputPath;  // G:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\testConverter.json                                           
+        private static string _outputPath; // G:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\testConverter.csv
+        public static char delimiter = ';';
+        
         public static void InputPath(string path)
         {
             if (File.Exists(path))
@@ -56,40 +46,12 @@ namespace Converter_json_to_csv
             OutputPath (output);
         }
 
-        public static Dictionary<string, string> inputJson()
-        {
-            string text = "";
+        public static List<Goods> ReadJson()
+        {           
             try
             {
-                text = File.ReadAllText(_inputPath);
-                Notify?.Invoke($"{_inputPath} прочитан.");
-            }
-            catch (FileNotFoundException)
-            {
-                Notify?.Invoke($"{_inputPath} не найден.");
-                return null;
-            }
-            catch (IOException)
-            {
-                Notify?.Invoke($"При открытии файла {_inputPath} произошла ошибка ввода-вывода.");
-                return null;
-            }
-            catch (NotSupportedException)
-            {
-                Notify?.Invoke($"Параметр {_inputPath} задан в недопустимом формате.");
-                return null;
-            }
-            catch
-            {
-                Notify?.Invoke($"Неизвестная ошибка при чтении {_inputPath}");
-                return null;
-            }
-
-            try
-            {
-                Dictionary<string, string> Json = JsonSerializer.Deserialize<Dictionary<string, string>>(text);
-
-
+                using var file = new FileStream(_inputPath,FileMode.Open);
+                List<Goods> Json = JsonSerializer.DeserializeAsync<List<Goods>>(file).Result;
                 Notify?.Invoke($"Данные из {_inputPath} загружены.");
                 return Json;
             }
@@ -109,6 +71,21 @@ namespace Converter_json_to_csv
                 return null;
             }
         }
+
+        public static void ConverterCSV(char delimiter, List<Goods> json)
+        {
+            if (File.Exists(_outputPath))
+            {
+                using (StreamWriter sw = new StreamWriter(_outputPath))
+                {
+                    foreach (var line in json)
+                    {
+                        var text = line.Name + delimiter + line.Price.ToString() + delimiter + line.Amount.ToString();
+                        sw.WriteLine(text);
+                    }
+                }
+            }
+        }        
     }
 }
 

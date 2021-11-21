@@ -21,39 +21,37 @@ namespace Converter_json_to_csv
             Console.WriteLine("-o Ввод пути к выходному файлу csv");
             Console.WriteLine("-s Ввод вида разделителя полей csv(например, запятая или точка с запятой)");
             Console.WriteLine("-e Ввод вида выходной кодировки файла (например, utf8 или windows1251)");
+            Console.WriteLine("-x Запуск конвертации");
             Console.WriteLine("-q Завершение работы программы");
             Console.WriteLine("-----------------------------------------");
         }
 
         public static void EventMenu(string select)
         {
-            ConverterFile.Notify += ConsoleMessage;
+            ConverterFile.Notify = (message) => Console.WriteLine(message);
             if (select.Contains("-i"))
             {
-                //ConverterFile.Notify += ConsoleMessage;
                 Console.WriteLine("Введите путь к входному файлу json");
                 string input = Console.ReadLine();
-                ConverterFile.InputPath(input);                               
-                Console.WriteLine("i end");
+                ConverterFile.InputPath(input); 
                 Selection();
 
             }
 
             if (select.Contains("-o"))
             {
-                //ConverterFile.Notify += ConsoleMessage;
-                Console.WriteLine("Введите путь к к выходному файлу csv");
-                Console.WriteLine("или пробел, если его необходимо создать");
+                Console.WriteLine("Введите путь к к выходному файлу csv или пробел, если его необходимо создать");
                 string output = Console.ReadLine();
                 if (output == " ") ConverterFile.OutputPath();
                 else ConverterFile.OutputPath(output);
-                Console.WriteLine("o end");
                 Selection();
             }
 
             if (select.Contains("-s"))
             {
-                
+                Console.WriteLine("Введите вид разделителя полей csv(например: , или ;)");
+                var x=Console.ReadKey();
+                ConverterFile.delimiter = x.KeyChar;
                 Selection();
             }
 
@@ -61,6 +59,18 @@ namespace Converter_json_to_csv
             {
                 
                 Selection();
+            }
+
+            if (select.Contains("-x"))
+            {
+                Console.WriteLine("Читаю json");
+                List<Goods> json=ConverterFile.ReadJson();
+                Console.WriteLine("Конвертирую из json в csv");
+                ConverterFile.ConverterCSV(ConverterFile.delimiter, json);
+                Console.WriteLine("Конвертация закончена");
+                Console.Write("Нажмите любую клавишу для выхода");
+                Console.ReadKey();
+                Environment.Exit(0);
             }
 
             if (select.Contains("-q"))
