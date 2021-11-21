@@ -40,9 +40,10 @@ namespace Converter_json_to_csv
 
         public static void OutputPath()
         {
-            //string output = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "\\testConverter.csv");
-            string output = @"I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv" + "\\testConverter.csv";            
-            File.Create(output);
+            string namePath=Path.GetFileNameWithoutExtension(_inputPath);
+            string dirPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location); namePath);
+            string output = $@"{dirPath}\{namePath}.csv";            
+            File.Create(output).Close();
             OutputPath (output);
         }
 
