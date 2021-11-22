@@ -14,10 +14,11 @@ namespace Converter_json_to_csv
     public static class ConverterFile
     {
         public static Action<string> Notify;
-        private static string _inputPath;  // D:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\testConverter.json                                           
+        private static string _inputPath;  // I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\testConverter.json                                           
         private static string _outputPath; // I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\testConverter.csv
         public static char delimiter = ';';
-        
+        public static Encoding encoder = Encoding.UTF8;
+
         public static void InputPath(string path)
         {
             if (File.Exists(path))
@@ -25,7 +26,12 @@ namespace Converter_json_to_csv
                 _inputPath = path;
                 Notify?.Invoke($"{path} найден.");
             }
-            else Notify?.Invoke($"{path} не найден.");
+            else if (Path.IsPathFullyQualified(path))
+            {
+                _inputPath = Path.GetFullPath(path); //Не знаю какой каталог текущий
+                Notify?.Invoke($"{path} найден.");
+            }
+                else Notify?.Invoke($"{path} не найден.");
                 
         }
         public static void OutputPath(string path)
@@ -35,7 +41,12 @@ namespace Converter_json_to_csv
                 _outputPath = path;
                 Notify?.Invoke($"{path} найден.");
             }
-            else Notify?.Invoke($"{path} не найден.");
+            else if (Path.IsPathFullyQualified(path))
+            {
+                _inputPath = Path.GetFullPath(path); //Не знаю какой каталог текущий
+                Notify?.Invoke($"{path} найден.");
+            }
+                else Notify?.Invoke($"{path} не найден.");
         }
 
         public static void OutputPath()
@@ -83,9 +94,10 @@ namespace Converter_json_to_csv
 
         public static void ConverterCSV(char delimiter, List<Goods> json)
         {
+           
             if (File.Exists(_outputPath))
-            {
-                using (StreamWriter sw = new StreamWriter(_outputPath))
+            {                
+                using (StreamWriter sw = new StreamWriter(_outputPath, false, encoder))
                 {
                     sw.WriteLine("Name" + delimiter + "Price" + delimiter + "Amount");
                     foreach (var line in json)

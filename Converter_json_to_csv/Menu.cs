@@ -20,7 +20,7 @@ namespace Converter_json_to_csv
             Console.WriteLine("-i Ввод пути к входному файлу json");
             Console.WriteLine("-o Ввод пути к выходному файлу csv");
             Console.WriteLine("-s Ввод вида разделителя полей csv(например, запятая или точка с запятой)");
-            Console.WriteLine("-e Ввод вида выходной кодировки файла (например, utf8 или windows1251)");
+            Console.WriteLine("-e Ввод вида выходной кодировки файла");
             Console.WriteLine("-x Запуск конвертации");
             Console.WriteLine("-q Завершение работы программы");
             Console.WriteLine("-----------------------------------------");
@@ -52,12 +52,15 @@ namespace Converter_json_to_csv
                 Console.WriteLine("Введите вид разделителя полей csv(например: , или ;)");
                 var x=Console.ReadKey();
                 ConverterFile.delimiter = x.KeyChar;
+                Console.WriteLine();
                 Selection();
             }
 
             if (select.Contains("-e"))
             {
-                
+                Console.WriteLine("По умолчанию используется кодировки UTF8. Для выбора другой кодировки введите ее наименование");                
+                ConverterFile.encoder = Encoding.GetEncoding(Console.ReadLine());
+                Console.WriteLine();
                 Selection();
             }
 
