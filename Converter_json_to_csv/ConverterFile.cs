@@ -14,8 +14,8 @@ namespace Converter_json_to_csv
     public static class ConverterFile
     {
         public static Action<string> Notify;
-        private static string _inputPath;  // G:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\testConverter.json                                           
-        private static string _outputPath; // G:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\testConverter.csv
+        private static string _inputPath;  // D:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\testConverter.json                                           
+        private static string _outputPath; // I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\testConverter.csv
         public static char delimiter = ';';
         
         public static void InputPath(string path)
@@ -41,7 +41,7 @@ namespace Converter_json_to_csv
         public static void OutputPath()
         {
             string namePath=Path.GetFileNameWithoutExtension(_inputPath);
-            string dirPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location); namePath);
+            string dirPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string output = $@"{dirPath}\{namePath}.csv";            
             File.Create(output).Close();
             OutputPath (output);
@@ -51,10 +51,18 @@ namespace Converter_json_to_csv
         {           
             try
             {
-                using var file = new FileStream(_inputPath,FileMode.Open);
-                List<Goods> Json = JsonSerializer.DeserializeAsync<List<Goods>>(file).Result;
-                Notify?.Invoke($"Данные из {_inputPath} загружены.");
-                return Json;
+                if (File.Exists(_inputPath))
+                {
+                    using var file = new FileStream(_inputPath, FileMode.Open);
+                    List<Goods> Json = JsonSerializer.DeserializeAsync<List<Goods>>(file).Result;
+                    Notify?.Invoke($"Данные из {_inputPath} загружены.");
+                    return Json;
+                }
+                else
+                {
+                    Notify?.Invoke("json файл не существует");
+                    return null;
+                }
             }
             catch (JsonException)
             {
@@ -79,15 +87,15 @@ namespace Converter_json_to_csv
             {
                 using (StreamWriter sw = new StreamWriter(_outputPath))
                 {
+                    sw.WriteLine("Name" + delimiter + "Price" + delimiter + "Amount");
                     foreach (var line in json)
                     {
-                        var text = line.Name + delimiter + line.Price.ToString() + delimiter + line.Amount.ToString();
+                        var text = line.Name + delimiter + line.Price + delimiter + line.Amount;
                         sw.WriteLine(text);
                     }
                 }
             }
-        }        
+            else Notify?.Invoke("csv файл не существует");
+        }
     }
-}
-
- 
+} 

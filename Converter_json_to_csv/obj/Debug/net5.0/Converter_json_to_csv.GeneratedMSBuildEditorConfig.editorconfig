@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Converter_json_to_csv
-build_property.ProjectDir = G:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\
+build_property.ProjectDir = I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\

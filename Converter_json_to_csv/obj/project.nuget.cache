@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "izNIVRvMV8FKVEZ5wRFqSnvKBKrTtDlzJeiIn6R2UOG2pd5qXarx+6rGuTtPrpyu2rfux1GhA475m04MbHgLTg==",
+  "dgSpecHash": "9HhpdXW07OWmyJ/CDNkvIJHjTIom07srar/XCeVaTb12w2sWcpKWhtk/HsVVgnRd9rgRsD8WLRNJoqNTZ2o0Eg==",
   "success": true,
-  "projectFilePath": "G:\\Test tasks\\Converter_json_to_csv\\Converter_json_to_csv\\Converter_json_to_csv.csproj",
+  "projectFilePath": "I:\\Test tasks\\Converter_json_to_csv\\Converter_json_to_csv\\Converter_json_to_csv.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Евгений\\.nuget\\packages\\csvhelper\\27.2.0\\csvhelper.27.2.0.nupkg.sha512"
+    "C:\\Users\\IrinaS\\.nuget\\packages\\csvhelper\\27.2.0\\csvhelper.27.2.0.nupkg.sha512"
   ],
   "logs": []
 }

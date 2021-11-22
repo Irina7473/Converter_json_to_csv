@@ -31,3 +31,5 @@ G:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\ref\C
 G:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\Converter_json_to_csv.pdb
 G:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\Converter_json_to_csv.genruntimeconfig.cache
 G:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\Converter_json_to_csv.csproj.AssemblyReference.cache
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\obj\Debug\net5.0\Converter_json_to_csv.csproj.AssemblyReference.cache
+I:\Test tasks\Converter_json_to_csv\Converter_json_to_csv\bin\Debug\net5.0\CsvHelper.dll

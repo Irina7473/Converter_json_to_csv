@@ -1,17 +1,17 @@
 ﻿[
-  {
-    "Name": "good1",
-    "Price": 34,
-    "Amount": 12
-  },
-  {
-    "Name": "good1",
-    "Price": 34,
-    "Amount": 12
-  },
-  {
-    "Name": "good1",
-    "Price": 34,
-    "Amount": 12
-  }
+    {
+      "Name": "good1",
+      "Price": 34,
+      "Amount": 12
+    },
+    {
+      "Name": "good2",
+      "Price": 34,
+      "Amount": 12
+    },
+    {
+      "Name": "good3",
+      "Price": 34,
+      "Amount": 12
+    }
 ]
